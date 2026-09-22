@@ -1,0 +1,19 @@
+class Solution {
+    /**
+     * @param {string[]} strs
+     * @return {string[][]}
+     */
+    groupAnagrams(strs) {
+        let map = {};
+        strs.forEach(str => {
+            let sortedStr = str.split('').sort().join('');
+            if(map[sortedStr]){
+                map[sortedStr].push(str);
+            }
+            else {
+                map[sortedStr] = [str];
+            }
+        })
+        return Object.values(map);
+    }
+}
